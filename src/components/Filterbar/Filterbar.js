@@ -156,7 +156,7 @@ function Filterbar(props) {
 
   return (
     <span className={props.collectionSize === 0 ? "hidden" : ""}>
-      <ScrollToTopButton myHeight={showBig ? "80" : "16"} />
+      <ScrollToTopButton showBig={showBig} />
       <span className={showBig ? "hidden" : " unselectable"}>
         <div onClick={() => setShowBig(!showBig)} className="fixed bottom-0 left-0 mb-3 ml-2 z-30 cursor-pointer text-gray-600"><FilterMenuIcon1 /></div>
         <div onClick={() => setShowBig(!showBig)} className="fixed bottom-0 right-0 mb-3 mr-2 z-30 cursor-pointer text-gray-600"><FilterMenuIcon2 /></div>
