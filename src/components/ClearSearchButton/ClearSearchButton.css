@@ -1,0 +1,39 @@
+.clearSearch {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    /* margin-bottom: 20rem; */
+    margin-top: 4rem;
+    margin-right: 3rem;
+    align-items: center;
+    height: 20px;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+    animation: fadeIn 0.3s;
+    transition: opacity 0.4s;
+    opacity: 0.85;
+}
+
+.clearSearch:hover {
+    opacity: 0.8;
+}
+
+.unselectableSearch {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}

@@ -1,0 +1,7 @@
+.nameTag1 {
+    white-space: nowrap; 
+    width: 50px; 
+    overflow: hidden;
+    text-overflow: clip; 
+    border: 1px solid #000000;
+  }
