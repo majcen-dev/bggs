@@ -1,12 +1,31 @@
-## How to use
+# BGG Selctor
+
+BGG Selector lets you view your [BGG](https://boardgamegeek.com/) boardgame collection and helps you to choose what to play next.  
+
+Built with [ReactJS](https://reactjs.org/) and [Express](https://expressjs.com/).
+
+## Feaures
+* Import your BGG collection
+* Fetch better thumbnails
+* Filter your collection by number of players and playtime
+* Open the BGG web page for selected boardgame
+* **Select a random game to play next**
+
+
+## Live version:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://bggs.herokuapp.com/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <sub>*Hosted on Heroku. Please wait for up to 10s for the server to wake up.*</sup>
+<br/><br/>
+
+# How to use
 
 Click "Get collection" to input your [BGG](https://boardgamegeek.com/) username and confirm with "Get Data".
 
-The app will make a request to:  
-https://www.boardgamegeek.com/xmlapi2/collection?username=--USERNAME--&excludesubtype=boardgameexpansion&version=1   
-The result will get parsed as JSON to your browsers localStorage and displayed as a gallery of all your boardgames **not** marked as expansions.  
-Images provided by the BGG API aren't friendly for gallery views (the thumbnail is too small and the cover image is too large).  
-You have the option to download better images which will improve the user exeperince.
+The app will make a request to the BGG API:  
+https://www.boardgamegeek.com/xmlapi2/collection?username=USERNAME&excludesubtype=boardgameexpansion&version=1   
+The result will get parsed as JSON to your browsers localStorage and displayed as a gallery of all your boardgames **not** marked as expansions. Images provided by the BGG API aren't friendly for gallery views (the thumbnail is too small and the cover image is too large).
+
+## Download better images which will improve the user exeperince.
 
 Click your name, gallery size or the image and "Get Large Thumbnails".
 
@@ -17,22 +36,28 @@ Click your name, gallery size or the image and "Get Large Thumbnails".
 
 The sever then has to manually search for a better version of each image and its dimension, which may take a while.
 Your localStorage database will get updates with better thumbnail URLs to be diplayed inside the apps **IMG** tags. Each image in the gallery will also fit more neatly inside the gallery.
-While the initial load may be slower, the images will be cached by modern browsers, so you won't be redownloading them on each visit, but they are still not *permanently* saved.
-Please note that the total downoad size of all larger images can be 10MB per 100 images, but is usally smaller. As a result this functionality is not recommended 
-for users that have limited data usage.
+While the initial load may be slower, the images will be cached by modern browsers, so you won't be redownloading them on each visit, but they are still not *permanently* saved. **Please note that the total downoad size of all larger images can be 10MB per 100 images, but is usally smaller.** As a result this functionality is not recommended for users that have limited data usage.
+
+The fetch request is done in batches of 100 to avoid timeouts.
+
+## Before and after getting large thumbnails
+![alternativetext](https://imgur.com/ZYrLZCb.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![alternativetext](https://imgur.com/WWgytiI.png)
 
 ## Navigation
 **Some options may be hidden depending on your viewport width.**
+
+Click a thumbnail to open its BGG web page
   
 
-### Top menu
+## Top menu
 
 ![alternativetext](https://imgur.com/1uQ4rVI.png)  
 Click any of these items to open a window that enables you to retrieve your BGG collection, remove it from localStorage or get larger thunbnails.    
 ![alternativetext](https://imgur.com/Uq0sQr7.png)  
   
 
-### Small buttons
+## Small buttons
 
 ![alternativetext](https://imgur.com/EXjZzeR.png)  
 * Sort by Average BGG rating - descending
@@ -46,7 +71,7 @@ Click any of these items to open a window that enables you to retrieve your BGG 
   
 The menu icon on each side expands or colapses this menu.
 
-### Collapsed
+## Collapsed
 
 ![alternativetext](https://imgur.com/NsG5TZW.png)  
 
@@ -55,7 +80,7 @@ You can click multiple times to get a different boardgame.
 The arrow resets this random filter.  
 The other two icons display your currently set filters.
 
-### Expanded
+## Expanded
 
 ![alternativetext](https://imgur.com/di139P7.png)  
 

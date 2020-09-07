@@ -43,5 +43,10 @@
     ]
   },
   "proxy": "http://localhost:3040",
-  "homepage": "./"
+  "homepage": "./",
+
+
+  "engines": {
+    "node": "12.18.3"
+  }
 }
