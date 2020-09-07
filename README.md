@@ -1,6 +1,6 @@
 # BGG Selctor
 
-BGG Selector lets you view your [BGG](https://boardgamegeek.com/) boardgame collection and helps you to choose what to play next.  
+BGG Selector lets you view your [BGG](https://boardgamegeek.com/) boardgame collection and helps you choosing what to play next.  
 
 Built with [ReactJS](https://reactjs.org/) and [Express](https://expressjs.com/).
 
@@ -13,7 +13,8 @@ Built with [ReactJS](https://reactjs.org/) and [Express](https://expressjs.com/)
 
 
 ## Live version:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://bggs.herokuapp.com/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://bggs.herokuapp.com/
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <sub>*Hosted on Heroku. Please wait for up to 10s for the server to wake up.*</sup>
 <br/><br/>
 
@@ -25,18 +26,18 @@ The app will make a request to the BGG API:
 https://www.boardgamegeek.com/xmlapi2/collection?username=USERNAME&excludesubtype=boardgameexpansion&version=1   
 The result will get parsed as JSON to your browsers localStorage and displayed as a gallery of all your boardgames **not** marked as expansions. Images provided by the BGG API aren't friendly for gallery views (the thumbnail is too small and the cover image is too large).
 
-## Download better images which will improve the user exeperince.
+## Download better images to improve user exeperince
 
-Click your name, gallery size or the image and "Get Large Thumbnails".
+Click your name, gallery size or the get image and then "Get Large Thumbnails".
 
 ![alternativetext](https://imgur.com/1uQ4rVI.png)
 
 ![alternativetext](https://imgur.com/CCvd6hc.png)
   
 
-The sever then has to manually search for a better version of each image and its dimension, which may take a while.
-Your localStorage database will get updates with better thumbnail URLs to be diplayed inside the apps **IMG** tags. Each image in the gallery will also fit more neatly inside the gallery.
-While the initial load may be slower, the images will be cached by modern browsers, so you won't be redownloading them on each visit, but they are still not *permanently* saved. **Please note that the total downoad size of all larger images can be 10MB per 100 images, but is usally smaller.** As a result this functionality is not recommended for users that have limited data usage.
+The sever then has to manually search for a better version of each image and its dimensions, which may take a while.
+Your localStorage database will get updates with better thumbnail URLs to be diplayed inside the app. Each image in the gallery will also fit more neatly inside the gallery.
+While the initial load may be slower, the images will be cached by modern browsers, so you won't be redownloading them on each visit, but they are still not *permanently* saved. **Please note that the total downoad size of all larger images can be up to 10MB per 100 images, but is usally smaller.**
 
 The fetch request is done in batches of 100 to avoid timeouts.
 
@@ -63,7 +64,7 @@ Click any of these items to open a window that enables you to retrieve your BGG 
 * Sort by Average BGG rating - descending
 * Sort by Name - ascending
 * Sort randomly
-* Open search window - typing in it automatically filters the collections.
+* Open search window - typing inside automatically filters your collection
 * Open INFO page
   
 
@@ -88,7 +89,8 @@ The dice icons display **1**, **2**, **4** or **6** random boardgames from your 
 You can click them multiple times to get different boardgames.  
 The arrow resets this random filter.  
   
-The sliders filter your collection based on your current number of players and available playtime.
+The sliders filter your collection based on number of players and game duration.  
+A game will be displayed if the inteval between its max and min playtime falls between the two time sldiers.
 
 ![alternativetext](https://imgur.com/kFoyMam.png)  
 

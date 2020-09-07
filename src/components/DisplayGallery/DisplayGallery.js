@@ -64,7 +64,7 @@ function DisplayGallery(props) {
                 <td>
                   {each.objectid} / <b>{each.name}</b>
                   <br />Players: <b>{each.minplayers}-{each.maxplayers}</b> / Time: <b>{each.minplaytime}-{each.maxplaytime}min</b>
-                  <br />Average: <b>{each.average}</b> / myAverage: <b>{each.ownerRating}</b>
+                  <br />Average: <b>{each.average}</b>
                 </td>
                 <td><img className="photoCard" width="150px" src={each.cover} alt={each.name} onClick={onClickOthr} urlid={each.objectid} /></td>
               </tr>

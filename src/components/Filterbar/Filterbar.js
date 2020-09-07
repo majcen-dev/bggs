@@ -169,7 +169,7 @@ function Filterbar(props) {
                 <Dice onClick={() => handleRandom(1)} className="w-8 h-8 cursor-pointer mt-2" />
               </div>
 
-              <div><span className="hidden tny:inline" onClick={() => setShowBig(!showBig)} ><Player3Icon/>{props.filterPlayers === 0 ? "Any" : props.filterPlayers}</span></div>
+              <div><span className="hidden tny:inline" onClick={() => setShowBig(!showBig)} ><Player3Icon />{props.filterPlayers === 0 ? "Any" : props.filterPlayers}</span></div>
               <div><span className="hidden xs:inline" onClick={() => setShowBig(!showBig)} ><ClockIcon />{props.filterMinTime === 0 ? "0" : props.filterMinTime}-{props.filterMaxTime === 0 ? "∞" : props.filterMaxTime} <span className="hidden ms:inline">min</span></span></div>
             </div></div>
         </div>
@@ -194,31 +194,34 @@ function Filterbar(props) {
 
             <div className="w-screen xs:w-11/12">
               <div className="font-semibold ml-10">Number of players:</div>
-              <span className="hidden xs:inline" onClick={() => { setPlayerRange("0") }}><Player1Icon /></span>
+              <span className="hidden xs:inline cursor-pointer" onClick={() => { setPlayerRange("0") }}><Player1Icon /></span>
               <div className="w-10/12 inline-block">
                 <div className="range-div inline">
                   <input onChange={e => setPlayerRange(e.target.value)} type="range" className="range ml-5 xs:ml-0 my-3" min="0" max="8" step="1" value={playerRange} />
                   <span className="range-thumb">{playerRange === "0" ? "Any" : playerRange}{playerRange === "8" ? "+" : ""}</span>
                 </div>
               </div>
-              <span className="hidden sm:inline" onClick={() => { setPlayerRange("0") }}><Player3Icon /></span>
+              <span className="hidden sm:inline cursor-pointer" onClick={() => { setPlayerRange("0") }}><Player3Icon /></span>
             </div>
 
             <div className="w-screen xs:w-11/12">
-              <div className="font-semibold ml-10">Min playtime:</div>
-              <span className="hidden xs:inline" onClick={() => { setMinTimeRange("0") }}><ClockIcon /></span>
+              <div className="font-semibold ml-10">Min time:</div>
+              <span className="hidden xs:inline cursor-pointer" onClick={() => { setMinTimeRange("0") }}><ClockIcon /></span>
               <div className="w-10/12 inline-block">
                 <div className="range-div inline">
                   <input onChange={e => setMinTimeRange(e.target.value)} type="range" className="range ml-5 xs:ml-0 my-3" min="0" max="180" step="10" value={minTimeRange} />
-                  <span className="range-thumb">{minTimeRange === "0" ? "0" : minTimeRange + " min"}{minTimeRange === "180" ? "+" : ""}</span>
+                  <span className="range-thumb">
+                    {minTimeRange === "0" ? "0" : minTimeRange + " min"}
+                    {/* {minTimeRange === "180" ? "+" : ""} */}
+                  </span>
                 </div>
               </div>
-              <span className="hidden sm:inline" onClick={() => { setMinTimeRange("0") }}><RightIcon /></span>
+              <span className="hidden sm:inline cursor-pointer" onClick={() => { setMinTimeRange("0") }}><RightIcon /></span>
             </div>
 
             <div className="w-screen xs:w-11/12">
-              <div className="font-semibold ml-10">Max playtime:</div>
-              <span className="hidden xs:inline" onClick={() => { setMaxTimeRange("190") }}><LeftIcon /></span>
+              <div className="font-semibold ml-10">Max time:</div>
+              <span className="hidden xs:inline cursor-pointer" onClick={() => { setMaxTimeRange("190") }}><LeftIcon /></span>
               <div className="w-10/12 inline-block">
                 <div className="range-div inline">
                   <input onChange={e => setMaxTimeRange(e.target.value)}
@@ -226,7 +229,7 @@ function Filterbar(props) {
                   <span className="range-thumb">{maxTimeRange === "190" ? "∞" : maxTimeRange + " min"}</span>
                 </div>
               </div>
-              <span className="hidden sm:inline" onClick={() => { setMaxTimeRange("190") }}><ClockIcon /></span>
+              <span className="hidden sm:inline cursor-pointer" onClick={() => { setMaxTimeRange("190") }}><ClockIcon /></span>
             </div>
           </div>
 

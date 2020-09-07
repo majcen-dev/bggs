@@ -26,5 +26,5 @@ yarn-error.log*
 tailwind.config-default.js
 src/tailwind.output.css
 first error msg.txt
-_output.xml
-_client.http
+
+/sloppyTesting

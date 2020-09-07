@@ -40,7 +40,7 @@ function App() {
     const col = filterMethod(myCollection, search, filterPlayers, filterMinTime, filterMaxTime, random);
     setFiterCollection(col);
     // eslint-disable-next-line
-  }, [search, filterPlayers, filterMinTime, filterMaxTime,/*  myCollection,  */ random, randomChange]);
+  }, [search, filterPlayers, filterMinTime, filterMaxTime, random, randomChange]);
 
 
   useEffect(() => {
@@ -51,7 +51,7 @@ function App() {
 
   useEffect(() => {
     (window.location.hash === "#debug") ? setDebugMode(true) : setDebugMode(false);
-    if (window.location.hash === "#debug") alert(`w=${window.innerWidth} h=${window.innerHeight} w*h=${window.innerWidth * window.innerHeight}`);
+    if (window.location.hash === "#screen") alert(`w=${window.innerWidth} h=${window.innerHeight} w*h=${window.innerWidth * window.innerHeight}`);
     if (window.location.hash === "#reset") {
       localStorage.removeItem('FULL_COLLECTION');
       localStorage.removeItem('COLLECTION_OWNER');

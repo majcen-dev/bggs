@@ -10,3 +10,7 @@
 .react-photo-gallery--gallery img {
     cursor: pointer;
 }
+
+.photoCard {
+    cursor: pointer;
+}
