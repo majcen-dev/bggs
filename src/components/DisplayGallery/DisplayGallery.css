@@ -1,8 +1,10 @@
 .xmasonry .xblock {
     cursor: pointer;
-    /* animation: comeIn ease 0.4s;
+    /* 
+    animation: comeIn ease 0.4s;
     animation-iteration-count: 1;
-    transition: left .3s ease, top .3s ease; */
+    transition: left .3s ease, top .3s ease; 
+    */
 }
 
 .react-photo-gallery--gallery img {

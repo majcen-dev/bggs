@@ -34,12 +34,6 @@ function DisplayGallery(props) {
   const [bigPhotos, setBigPhotos] = useState([]);
   const { height, width } = useWindowDimensions();
 
-  /* useEffect(() => {
-    // alert(height + " " + width + " " + height*width);
-    console.log(height, width, height * width);
-  }, [height, width]); */
-
-
   useEffect(() => {
     let photos = [];
 

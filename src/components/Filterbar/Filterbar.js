@@ -6,9 +6,7 @@ import ScrollToTopButton from './../ScrollToTopButton';
 import { Player1Icon, Player3Icon, ClockIcon, RightIcon, LeftIcon, Undo, FilterMenuIcon1, FilterMenuIcon2 } from './Svgs'
 import { ReactComponent as Die1 } from './diceSvgs/die1.svg';
 import { ReactComponent as Die2 } from './diceSvgs/die2.svg';
-// import { ReactComponent as Die3 } from './diceSvgs/die3.svg';
 import { ReactComponent as Die4 } from './diceSvgs/die4.svg';
-// import { ReactComponent as Die5 } from './diceSvgs/die5.svg';
 import { ReactComponent as Die6 } from './diceSvgs/die6.svg';
 import { ReactComponent as Dice } from './diceSvgs/dice.svg';
 
@@ -190,14 +188,9 @@ function Filterbar(props) {
               <span onClick={() => handleRandom(0)} className="w-6 h-6 inline cursor-pointer"><Undo /></span>
               <Die1 onClick={() => handleRandom(1)} className="w-6 h-6 inline cursor-pointer" />
               <Die2 onClick={() => handleRandom(2)} className="w-6 h-6 inline cursor-pointer" />
-              {/* <Die3 className="w-6 h-6 hidden tny:inline cursor-pointer" /> */}
               <Die4 onClick={() => handleRandom(4)} className="w-6 h-6 hidden xs:inline cursor-pointer" />
-              {/* <Die5 className="w-6 h-6 hidden xs:inline cursor-pointer" /> */}
               <Die6 onClick={() => handleRandom(6)} className="w-6 h-6 hidden xs:inline cursor-pointer" />
-              {/* <Die6 className="w-8 h-8 hidden ms:inline cursor-pointer" /> */}
             </div>
-
-
 
             <div className="w-screen xs:w-11/12">
               <div className="font-semibold ml-10">Number of players:</div>

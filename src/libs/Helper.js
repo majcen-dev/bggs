@@ -11,22 +11,6 @@ const parseXML = (rawXML) => {
 
     for (let i = 0; i <= oDOM.getElementsByTagName('item').length - 1; i++) {
         let item = oDOM.getElementsByTagName('item')[i];
-        // try {} catch (error) {} 
-        // let obj = {
-        //     objectid: item.getAttribute('objectid') || "0",
-        //     name: item.querySelector('name').textContent || "_null",
-        //     minplayers: item.querySelector('stats').getAttribute('minplayers') || "0",
-        //     maxplayers: item.querySelector('stats').getAttribute('maxplayers') || "0",
-        //     minplaytime: item.querySelector('stats').getAttribute('minplaytime') || "0",
-        //     maxplaytime: item.querySelector('stats').getAttribute('maxplaytime') || "0",
-        //     playingtime: item.querySelector('stats').getAttribute('playingtime') || "0",
-        //     ownerRating: item.querySelector('stats rating').getAttribute('value') || "0.0",
-        //     average: item.querySelector('stats rating average').getAttribute('value') || "0.0",
-        //     numplays: item.querySelector('numplays').textContent || "0",
-        //     thumbnail: ((item.querySelector('thumbnail') || {}).textContent) || "_null",
-        //     image: ((item.querySelector('image') || {}).textContent) || "_null",
-        //     lastmodified: item.querySelector('status').getAttribute('lastmodified') || "_null"
-        // }
         let obj = {};
         try { obj.objectid = item.getAttribute('objectid') } catch (error) { obj.objectid = "0"; }
         try { obj.name = item.querySelector('name').textContent } catch (error) { obj.name = "_null"; }
@@ -41,9 +25,8 @@ const parseXML = (rawXML) => {
         try { obj.thumbnail = item.querySelector('thumbnail').textContent } catch (error) {
             obj.thumbnail = "http://error.com/";
         }
-        // try { obj.image = item.querySelector('image').textContent } catch (error) { obj.image = "_null"; }
         try { obj.lastmodified = item.querySelector('status').getAttribute('lastmodified') } catch (error) { obj.lastmodified = "_null"; }
-        //
+        
         if (obj.ownerRating === "N/A")
             obj.ownerRating = 0;
 
@@ -55,12 +38,6 @@ const parseXML = (rawXML) => {
 const pullDataBGG = async (username) => {
     if (!username) return "ERROR: No username!";
 
-    // const CORS_XML_PROXY = `https://majcen-cors-api-proxy.herokuapp.com/proxy/xml/`;
-    // const BGG_API_URL = `https://www.boardgamegeek.com/xmlapi/collection/`;
-    // let BGG_USER_API_URL = CORS_XML_PROXY + BGG_API_URL + username;
-
-    // const BGG_USER_API_URL = `http://192.168.64.111:3040/api/getCollection/`
-    //     + `https://www.boardgamegeek.com/xmlapi2/collection?username=${username}&excludesubtype=boardgameexpansion&stats=1`;
     const BGG_USER_API_URL = `/api/getCollection/`
         + `https://www.boardgamegeek.com/xmlapi2/collection?username=${username}&excludesubtype=boardgameexpansion&stats=1`;
 
@@ -89,6 +66,8 @@ const pullDataBGG = async (username) => {
 
     return removedDupes;
 }
+
+//manual expansion removal
 /* 
 function removeExpansionsSlow(collection) {
 
@@ -118,10 +97,7 @@ function removeExpansionsSlow(collection) {
 
     return collection;
 };
- */
-
-
-/* let script = [
+ let script = [
     {
       objectid: "179803",
       name: "Arcadia Quest: Inferno",
@@ -152,10 +128,10 @@ function removeExpansionsSlow(collection) {
       name: "Star Wars: X-Wing (Second Edition)",
       tempName: "Star Wars: X-Wing"
     },
-  ]; */
+  ]; 
 
 
-/* function removeExpansions(collection, script) {
+   function removeExpansions(collection, script) {
     let collectionCopy = collection.map((each) => ({ ...each }));
 
 
@@ -212,8 +188,6 @@ async function getBGGDataFromFetch(username) {
     let retrievedData = await pullDataBGG(username);
     if (typeof retrievedData === "string")
         return retrievedData;
-    /* if (script)
-        retrievedData = removeExpansions(retrievedData, script); */
 
     retrievedData.sort((a, b) => {
         if (a.name < b.name) return -1;
@@ -229,7 +203,6 @@ function sleep(ms) {
 }
 
 async function getArrayOfCovers(collection, stringsOnly = false) {
-    // const API_URL = "http://192.168.64.111:3040/api/get-image-ids/";
     const API_URL = "/api/get-image-ids/";
     let arrayOfThumbs = collection.map(each => each['thumbnail']);
     const fetchRequest = await fetch(API_URL, {
@@ -255,7 +228,6 @@ async function getArrayOfCovers(collection, stringsOnly = false) {
 }
 
 async function getArrayOfCoversRatio(collection, stringsOnly = false) {
-    // const API_URL = "http://192.168.64.111:3040/api/get-image-ids-ratio/";
     const API_URL = "/api/get-image-ids-ratio/";
     let arrayOfThumbs = collection.map(each => each['thumbnail']);
     const fetchRequest = await fetch(API_URL, {
