@@ -22,6 +22,8 @@ Built with [ReactJS](https://reactjs.org/) and [Express](https://expressjs.com/)
 
 Click "Get collection" to input your [BGG](https://boardgamegeek.com/) username and confirm with "Get Data".
 
+<span style="color:grey">You can use the use username *matreli* for a DEMO.</span>
+
 The app will make a request to the BGG API:  
 https://www.boardgamegeek.com/xmlapi2/collection?username=USERNAME&excludesubtype=boardgameexpansion&version=1   
 The result will get parsed as JSON to your browsers localStorage and displayed as a gallery of all your boardgames **not** marked as expansions. Images provided by the BGG API aren't friendly for gallery views (the thumbnail is too small and the cover image is too large).
@@ -54,7 +56,9 @@ Click a thumbnail to open its BGG web page
 ## Top menu
 
 ![alternativetext](https://imgur.com/1uQ4rVI.png)  
-Click any of these items to open a window that enables you to retrieve your BGG collection, remove it from localStorage or get larger thunbnails.    
+Click any of these items to open a window that enables you to retrieve your BGG collection, remove it from localStorage or get larger thunbnails.
+
+<span style="color:grey">You can use the use username *matreli* for a DEMO.</span>   
 ![alternativetext](https://imgur.com/Uq0sQr7.png)  
   
 
